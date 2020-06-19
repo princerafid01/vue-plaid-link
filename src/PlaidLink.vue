@@ -27,6 +27,7 @@ export default {
             type: [String, Array],
             default: function () { return ['transactions'] }
         },
+        payment_token: String,
         language: String,
         countryCodes: Array,
         isWebView: Boolean,
@@ -61,6 +62,7 @@ export default {
                 onEvent: this.onEvent,
                 onSuccess: this.onSuccess,
                 product: this.product,
+                payment_token: this.payment_token,
                 selectAccount: this.selectAccount,
                 token: this.token,
                 webhook: this.webhook
@@ -91,14 +93,6 @@ export default {
 
                 document.head.appendChild(el)
             })
-        }
-    },
-    watch: {
-        $data: {
-            handler() {
-                this.onScriptLoaded()
-            },
-            deep: true
         }
     }
 }
